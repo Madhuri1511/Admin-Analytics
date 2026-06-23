@@ -9,6 +9,7 @@ interface AnalyticsCardProps {
   icon?: LucideIcon;
   trend?: string;
   loading?: boolean;
+  onClick?: () => void;
 }
 
 const AnalyticsCard = memo(function AnalyticsCard({
@@ -17,9 +18,13 @@ const AnalyticsCard = memo(function AnalyticsCard({
   icon: Icon,
   trend,
   loading,
+  onClick,
 }: AnalyticsCardProps) {
   return (
-    <Card className="group cursor-pointer border-border/50 shadow-sm transition-all duration-300 ease-out hover:-translate-y-1 hover:border-primary/20 hover:shadow-md dark:hover:shadow-primary/5">
+    <Card 
+      className={`group border-border/50 shadow-sm transition-all duration-300 ease-out hover:-translate-y-1 hover:border-primary/20 hover:shadow-md dark:hover:shadow-primary/5 ${onClick ? 'cursor-pointer' : ''}`}
+      onClick={onClick}
+    >
       <CardContent className="pt-6">
         <div className="flex items-start justify-between gap-3">
           <div className="min-w-0 space-y-2">

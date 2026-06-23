@@ -74,9 +74,9 @@ const Header = memo(function Header() {
             </span>
           </div>
           <Separator orientation="vertical" className="hidden h-6 sm:block" />
-          <Button className="cursor-pointer" variant="ghost" size="sm" onClick={handleLogout}>
-            <LogOut className="size-4 sm:mr-2" />
-            <span className="hidden sm:inline">Logout</span>
+          <Button className="cursor-pointer px-2" variant="ghost" size="sm" onClick={handleLogout}>
+            <LogOut className="size-4 text-muted-foreground transition-colors group-hover:text-foreground" />
+            <span className="hidden sm:inline text-sm font-medium">Logout</span>
           </Button>
         </div>
       </div>
