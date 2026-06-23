@@ -56,10 +56,12 @@ const LoginPage = memo(function LoginPage() {
   };
 
   return (
-    <div className="relative flex min-h-screen items-center justify-center bg-gradient-to-br from-emerald-50 via-green-50/80 to-white p-4 overflow-hidden">
+    <div className="relative flex min-h-[100dvh] items-center justify-center bg-gradient-to-br from-emerald-50 via-green-50/80 to-white p-4">
       {/* Decorative Background Elements */}
-      <div className="absolute -top-[20%] -right-[10%] h-[500px] w-[500px] rounded-full bg-emerald-200/40 mix-blend-multiply blur-[100px] animate-pulse duration-10000" />
-      <div className="absolute -bottom-[20%] -left-[10%] h-[500px] w-[500px] rounded-full bg-green-200/40 mix-blend-multiply blur-[100px] animate-pulse duration-10000" />
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute -top-[20%] -right-[10%] h-[500px] w-[500px] rounded-full bg-emerald-200/40 mix-blend-multiply blur-[100px] animate-pulse duration-10000" />
+        <div className="absolute -bottom-[20%] -left-[10%] h-[500px] w-[500px] rounded-full bg-green-200/40 mix-blend-multiply blur-[100px] animate-pulse duration-10000" />
+      </div>
 
       <Card className="relative z-10 w-full max-w-md border-white/60 bg-white/70 shadow-2xl backdrop-blur-xl transition-all duration-300 hover:shadow-emerald-500/10">
         <CardHeader className="space-y-3 text-center pb-2 pt-8">
