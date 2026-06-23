@@ -39,8 +39,9 @@ const AnalyticsChart = memo(function AnalyticsChart() {
                 dataKey="name" 
                 axisLine={false}
                 tickLine={false}
-                tick={{ fill: 'var(--color-muted-foreground)', fontSize: 12 }}
+                tick={{ fill: 'var(--color-muted-foreground)', fontSize: 10 }}
                 dy={10}
+                interval={0}
               />
               <YAxis 
                 axisLine={false}
