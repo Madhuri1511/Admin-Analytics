@@ -24,6 +24,13 @@ export function DatePickerWithRange({
   setDate,
 }: DatePickerWithRangeProps) {
   const [open, setOpen] = React.useState(false);
+  const [localDate, setLocalDate] = React.useState<DateRange | undefined>(date);
+
+  React.useEffect(() => {
+    if (open) {
+      setLocalDate(date);
+    }
+  }, [open, date]);
 
   return (
     <div className={cn("grid gap-2", className)}>
@@ -57,8 +64,8 @@ export function DatePickerWithRange({
             initialFocus
             mode="range"
             defaultMonth={date?.from}
-            selected={date}
-            onSelect={setDate}
+            selected={localDate}
+            onSelect={setLocalDate}
             numberOfMonths={2}
           />
           <div className="flex items-center justify-end gap-2 border-t p-3">
@@ -66,6 +73,7 @@ export function DatePickerWithRange({
               variant="ghost"
               size="sm"
               onClick={() => {
+                setLocalDate(undefined);
                 setDate(undefined);
                 setOpen(false);
               }}
@@ -74,7 +82,10 @@ export function DatePickerWithRange({
             </Button>
             <Button
               size="sm"
-              onClick={() => setOpen(false)}
+              onClick={() => {
+                setDate(localDate);
+                setOpen(false);
+              }}
             >
               Apply
             </Button>
