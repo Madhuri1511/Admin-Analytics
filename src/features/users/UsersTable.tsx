@@ -100,9 +100,13 @@ interface SortButtonProps {
   label: string;
   onSort: (column: string) => void;
   sortIndicator: (column: string) => string;
+  disabled?: boolean;
 }
 
-function SortButton({ column, label, onSort, sortIndicator }: SortButtonProps) {
+function SortButton({ column, label, onSort, sortIndicator, disabled }: SortButtonProps) {
+  if (disabled) {
+    return <>{label}</>;
+  }
   return (
     <button
       type="button"
@@ -325,27 +329,27 @@ const UsersTable = memo(function UsersTable({ compact = false, onEditUser }: Use
             <TableRow>
               {isColumnVisible('name') ? (
                 <TableHead>
-                  <SortButton column="name" label="Name" onSort={handleSort} sortIndicator={sortIndicator} />
+                  <SortButton column="name" label="Name" onSort={handleSort} sortIndicator={sortIndicator} disabled={compact} />
                 </TableHead>
               ) : null}
               {isColumnVisible('email') ? (
                 <TableHead>
-                  <SortButton column="email" label="Email" onSort={handleSort} sortIndicator={sortIndicator} />
+                  <SortButton column="email" label="Email" onSort={handleSort} sortIndicator={sortIndicator} disabled={compact} />
                 </TableHead>
               ) : null}
               {isColumnVisible('role') ? (
                 <TableHead>
-                  <SortButton column="role" label="Role" onSort={handleSort} sortIndicator={sortIndicator} />
+                  <SortButton column="role" label="Role" onSort={handleSort} sortIndicator={sortIndicator} disabled={compact} />
                 </TableHead>
               ) : null}
               {isColumnVisible('status') ? (
                 <TableHead>
-                  <SortButton column="status" label="Status" onSort={handleSort} sortIndicator={sortIndicator} />
+                  <SortButton column="status" label="Status" onSort={handleSort} sortIndicator={sortIndicator} disabled={compact} />
                 </TableHead>
               ) : null}
               {isColumnVisible('createdAt') ? (
                 <TableHead>
-                  <SortButton column="createdAt" label="Created Date" onSort={handleSort} sortIndicator={sortIndicator} />
+                  <SortButton column="createdAt" label="Created Date" onSort={handleSort} sortIndicator={sortIndicator} disabled={compact} />
                 </TableHead>
               ) : null}
               {isColumnVisible('actions') ? <TableHead className="text-right">Actions</TableHead> : null}
